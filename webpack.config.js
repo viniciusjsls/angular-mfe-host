@@ -4,12 +4,11 @@ module.exports = withModuleFederationPlugin({
 
   name: 'angular-mfe-host',
 
-  exposes: {
-    './Component': './src\app\app.ts',
+  remotes: {
+    "angular-mfe-dashboard": "http://localhost:4201/remoteEntry.js",
   },
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
-
 });
